@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="510.0" prefWidth="788.0" style="-fx-background-color: linear-gradient(to bottom, #f7f9fc, #dde5ed);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.allofannclasscontroller">
+    <children>
+        <Button layoutX="24.0" layoutY="446.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="35.0" prefWidth="98.0" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-radius: 10; -fx-background-radius: 10;" text="Back" />
+
+
+        <ListView fx:id="listView1" layoutX="136.0" layoutY="48.0" prefHeight="434.0" prefWidth="200.0" style="-fx-background-color: #f8d7da; -fx-border-color: #bdc3c7; -fx-border-radius: 5;">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </ListView>
+
+
+        <ListView fx:id="listView2" layoutX="349.0" layoutY="48.0" prefHeight="434.0" prefWidth="200.0" style="-fx-background-color: #d1ecf1; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
+
+
+        <ListView fx:id="listView3" layoutX="568.0" layoutY="48.0" prefHeight="434.0" prefWidth="200.0" style="-fx-background-color: #d4edda; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
+    </children>
+</AnchorPane>
