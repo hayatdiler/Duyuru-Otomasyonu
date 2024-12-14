@@ -1,6 +1,5 @@
-package com.example.announcement_procedures_automation_projectoop.Controllers;
+package com.example.announcement_procedures_automation_projectoop;
 
-import com.example.announcement_procedures_automation_projectoop.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,7 +66,7 @@ public class Controller {
     }
     @FXML
     public void switchToBack(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UIProject.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginScene.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
@@ -81,4 +80,5 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+
 }
