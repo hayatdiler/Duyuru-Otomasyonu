@@ -2,6 +2,7 @@ package com.example.announcement_procedures_automation_projectoop.Controllers;
 
 import com.example.announcement_procedures_automation_projectoop.Announcements.PersonalAnnouncement;
 import com.example.announcement_procedures_automation_projectoop.CustomCells.CustomListCellPerson;
+import com.example.announcement_procedures_automation_projectoop.DataBases.DataBasePerson;
 import com.example.announcement_procedures_automation_projectoop.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,6 +34,15 @@ public class PAlistcontroller {
     public static Map<String, List<String>> personalAnnouncements = new HashMap<>();
 
     public void initialize() {
+
+        personalAnnouncements=DataBasePerson.loadData();
+
+        for(String person:personalAnnouncements.keySet()){
+            if(!announcments2.contains("Person:"+person)){
+                announcments2.add("Person:"+person);
+            }
+        }
+
         palist.getItems().addAll(announcments2);
         palist.setCellFactory(listView -> new CustomListCellPerson());
     }
@@ -60,6 +70,8 @@ public class PAlistcontroller {
 
             textField.clear();
             textField1.clear();
+
+            DataBasePerson.saveData(personalAnnouncements);
         }
     }
 

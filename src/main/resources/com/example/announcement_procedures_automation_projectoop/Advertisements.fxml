@@ -7,8 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="510.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.Alistcontroller" style="-fx-background-color: linear-gradient(to bottom, #ffffff, #dceefb);">
     <children>
+        <ImageView fitHeight="510" fitWidth="788" layoutX="1" layoutY="2">
+            <image>
+                <Image url="@Images/Advertisement.png" />
+            </image>
+        </ImageView>
         <Button layoutX="36.0" layoutY="442.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="42.0" prefWidth="130.0" text="Back" style="-fx-background-color: #ff4b5c; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 0, 4);" />
 
         <Label layoutX="108.0" layoutY="57.0" prefHeight="42.0" prefWidth="350.0" text="Advertisements" style="-fx-text-fill: #2c3e50;">

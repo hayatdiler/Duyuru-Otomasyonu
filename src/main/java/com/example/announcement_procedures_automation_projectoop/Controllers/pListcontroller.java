@@ -1,6 +1,7 @@
 package com.example.announcement_procedures_automation_projectoop.Controllers;
 
 import com.example.announcement_procedures_automation_projectoop.Announcements.Proclamation;
+import com.example.announcement_procedures_automation_projectoop.DataBases.DataBaseProclamation;
 import com.example.announcement_procedures_automation_projectoop.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class pListcontroller {
 
@@ -27,7 +31,10 @@ public class pListcontroller {
 
     public static ArrayList<String> announcments1 = new ArrayList<>();
 
+
     public void initialize() {
+
+        announcments1= (ArrayList<String>) DataBaseProclamation.loadData();
 
         plist.getItems().addAll(announcments1);
     }
@@ -41,10 +48,14 @@ public class pListcontroller {
             alert.setContentText("Proclamation cannot be empty!");
             alert.showAndWait();
         } else {
+
             announcments1.add("proclamation:"+p.getMessage());
             plist.getItems().clear();
             plist.getItems().addAll(announcments1);
+
             textField.clear();
+
+            DataBaseProclamation.saveData(announcments1);
         }
     }
 

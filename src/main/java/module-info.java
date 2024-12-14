@@ -2,6 +2,7 @@ module com.example.announcement_procedures_automation_projectoop {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
+    requires com.google.gson;
 
 
     opens com.example.announcement_procedures_automation_projectoop to javafx.fxml;
@@ -12,4 +13,6 @@ module com.example.announcement_procedures_automation_projectoop {
     opens com.example.announcement_procedures_automation_projectoop.Controllers to javafx.fxml;
     exports com.example.announcement_procedures_automation_projectoop.CustomCells;
     opens com.example.announcement_procedures_automation_projectoop.CustomCells to javafx.fxml;
+    exports com.example.announcement_procedures_automation_projectoop.DataBases;
+    opens com.example.announcement_procedures_automation_projectoop.DataBases to javafx.fxml;
 }

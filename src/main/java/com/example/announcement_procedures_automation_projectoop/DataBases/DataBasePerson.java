@@ -1,4 +1,4 @@
-package com.example.announcement_procedures_automation_projectoop;
+package com.example.announcement_procedures_automation_projectoop.DataBases;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -7,14 +7,13 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DataBase {
+public class DataBasePerson {
 
-    private static final String FILE_PATH = "advertisements.json";
+    private static final String FILE_PATH = "Person.json";
 
     public static void saveData(Map<String, List<String>> data) {
         Gson gson = new Gson();

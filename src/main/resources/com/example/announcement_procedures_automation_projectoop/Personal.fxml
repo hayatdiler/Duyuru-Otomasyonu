@@ -13,7 +13,7 @@
     <children>
         <ImageView fitHeight="510" fitWidth="788" layoutX="1" layoutY="2">
             <image>
-                <Image url="@PA.jpg" />
+                <Image url="@Images/PA.jpg" />
             </image>
 
         </ImageView>

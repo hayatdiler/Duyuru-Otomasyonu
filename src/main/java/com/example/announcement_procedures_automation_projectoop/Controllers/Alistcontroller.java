@@ -3,6 +3,7 @@ package com.example.announcement_procedures_automation_projectoop.Controllers;
 
 import com.example.announcement_procedures_automation_projectoop.Announcements.Advertisements;
 import com.example.announcement_procedures_automation_projectoop.CustomCells.CustomListCellAdvertisement;
+import com.example.announcement_procedures_automation_projectoop.DataBases.DataBaseAdvertisement;
 import com.example.announcement_procedures_automation_projectoop.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,6 +36,14 @@ public class Alistcontroller {
 
     public void initialize() {
 
+        Advertisementannounce= DataBaseAdvertisement.loadData();
+
+        for(String company:Advertisementannounce.keySet()){
+            if(!announcments3.contains("Company:"+company)){
+                announcments3.add("Company:"+company);
+            }
+        }
+
         alist.getItems().addAll(announcments3);
         alist.setCellFactory(listview->new CustomListCellAdvertisement());
     }
@@ -60,6 +69,8 @@ public class Alistcontroller {
 
             textField.clear();;
             textField1.clear();
+
+            DataBaseAdvertisement.saveData(Advertisementannounce);
         }
     }
 

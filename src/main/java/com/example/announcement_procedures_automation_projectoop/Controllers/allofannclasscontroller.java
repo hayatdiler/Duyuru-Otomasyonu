@@ -1,5 +1,6 @@
 package com.example.announcement_procedures_automation_projectoop.Controllers;
 
+import com.example.announcement_procedures_automation_projectoop.Announcements.Proclamation;
 import com.example.announcement_procedures_automation_projectoop.CustomCells.CustomListCellAdvertisement;
 import com.example.announcement_procedures_automation_projectoop.CustomCells.CustomListCellPerson;
 import com.example.announcement_procedures_automation_projectoop.Main;
@@ -13,6 +14,7 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class allofannclasscontroller {
     @FXML
@@ -25,13 +27,19 @@ public class allofannclasscontroller {
     private ListView<String> listView3;
 
     @FXML
-    public void initialize(){
-        listView1.getItems().addAll(Alistcontroller.announcments3);
-        listView2.getItems().addAll(pListcontroller.announcments1);
-        listView3.getItems().addAll(PAlistcontroller.announcments2);
-        listView1.setCellFactory(listview -> new CustomListCellAdvertisement());
+    public void initialize() {
+        List<String> personalAnnouncements = PAlistcontroller.announcments2;
+        List<String> Advertisements = Alistcontroller.announcments3;
+        List<String> Proclamations = pListcontroller.announcments1;
+
+        listView1.getItems().addAll(Advertisements);
+        listView2.getItems().addAll(Proclamations);
+        listView3.getItems().addAll(personalAnnouncements);
+
+        listView1.setCellFactory(listview-> new CustomListCellAdvertisement());
         listView3.setCellFactory(listView -> new CustomListCellPerson());
     }
+
 
 
     @FXML
@@ -43,4 +51,5 @@ public class allofannclasscontroller {
         stage.setScene(scene);
         stage.show();
     }
+
 }

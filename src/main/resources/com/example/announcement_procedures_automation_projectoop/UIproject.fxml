@@ -11,7 +11,7 @@
     <children>
         <ImageView fitHeight="510.0" fitWidth="788.0" layoutX="1.0" layoutY="-2.0">
             <image>
-                <Image url="@Announcement.jpg" />
+                <Image url="@Images/Announcement.jpg" />
             </image>
         </ImageView>
         <Label layoutX="68.0" layoutY="30.0" prefHeight="114.0" prefWidth="664.0" style="-fx-text-fill: #3a3a3a;" text="  Announcement procedures automation" textAlignment="CENTER">
@@ -27,5 +27,7 @@
         <Button layoutX="559.0" layoutY="206.0" mnemonicParsing="false" onAction="#switchToPersonal" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="AddPersonal" />
 
         <Button layoutX="219.0" layoutY="351.0" mnemonicParsing="false" onAction="#switchToList" prefHeight="82.0" prefWidth="350.0" style="-fx-background-color: #7F00FF; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-border-radius: 15; -fx-background-radius: 15; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="All of the Announcements" />
+
+        <Button layoutX="40.0" layoutY="440.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10;" text="Back" />
     </children>
 </AnchorPane>
