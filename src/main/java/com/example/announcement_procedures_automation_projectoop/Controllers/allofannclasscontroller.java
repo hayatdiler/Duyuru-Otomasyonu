@@ -1,9 +1,12 @@
 package com.example.announcement_procedures_automation_projectoop.Controllers;
 
-import com.example.announcement_procedures_automation_projectoop.Announcements.Proclamation;
 import com.example.announcement_procedures_automation_projectoop.CustomCells.CustomListCellAdvertisement;
 import com.example.announcement_procedures_automation_projectoop.CustomCells.CustomListCellPerson;
+import com.example.announcement_procedures_automation_projectoop.DataBases.DataBaseAdvertisement;
+import com.example.announcement_procedures_automation_projectoop.DataBases.DataBasePerson;
+import com.example.announcement_procedures_automation_projectoop.DataBases.DataBaseProclamation;
 import com.example.announcement_procedures_automation_projectoop.Main;
+import com.example.announcement_procedures_automation_projectoop.Controllers.PAlistcontroller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +17,7 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class allofannclasscontroller {
@@ -28,6 +32,20 @@ public class allofannclasscontroller {
 
     @FXML
     public void initialize() {
+        Alistcontroller.Advertisementannounce= DataBaseAdvertisement.loadData();
+
+        for(String company:Alistcontroller.Advertisementannounce.keySet()){
+            if(!Alistcontroller.announcments3.contains("Company:"+company)){
+                Alistcontroller.announcments3.add("Company:"+company);
+            }
+        }
+        PAlistcontroller.personalAnnouncements= DataBasePerson.loadData();
+        for(String name:PAlistcontroller.personalAnnouncements.keySet()){
+            if(!PAlistcontroller.announcments2.contains("Person:"+name)){
+                PAlistcontroller.announcments2.add("Person:"+name);
+            }
+        }
+        pListcontroller.announcments1= (ArrayList<String>) DataBaseProclamation.loadData();
         List<String> personalAnnouncements = PAlistcontroller.announcments2;
         List<String> Advertisements = Alistcontroller.announcments3;
         List<String> Proclamations = pListcontroller.announcments1;

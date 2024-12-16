@@ -1,46 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.LoginController">
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.LoginController">
     <children>
-        <ImageView fitHeight="510" fitWidth="788" layoutX="1" layoutY="2">
-            <image>
-                <Image url="@Images/loginbackground.jpg" />
-            </image>
-        </ImageView>
-        <Text layoutX="230.0" layoutY="55.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #333;" text="Login Page" wrappingWidth="168.46160888671875" />
+        <!-- Background -->
+        <Rectangle fill="#f5f5f5" height="450.0" layoutX="0.0" layoutY="0.0" width="600.0" />
 
-        <TextField fx:id="textField" layoutX="164.0" layoutY="80.0" prefHeight="40.0" prefWidth="272.0" promptText="Name:">
+        <!-- Header -->
+        <Text layoutX="200.0" layoutY="50.0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #444;" text="Welcome Back!" wrappingWidth="200.0" />
+
+        <!-- Input Fields -->
+        <TextField fx:id="textField" layoutX="164.0" layoutY="100.0" prefHeight="40.0" prefWidth="272.0" promptText="Name" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;">
             <font>
                 <Font size="16.0" />
             </font>
-            <style>
-                -fx-background-radius: 10;
-                -fx-border-color: #ccc;
-                -fx-border-radius: 10;
-            </style>
         </TextField>
 
-        <PasswordField fx:id="passwordField" layoutX="164.0" layoutY="150.0" prefHeight="40.0" prefWidth="272.0" promptText="Password:">
+        <PasswordField fx:id="passwordField" layoutX="163.0" layoutY="178.0" prefHeight="40.0" prefWidth="272.0" promptText="Password" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;">
             <font>
                 <Font size="16.0" />
             </font>
-            <style>
-                -fx-background-radius: 10;
-                -fx-border-color: #ccc;
-                -fx-border-radius: 10;
-            </style>
         </PasswordField>
 
-        <Button layoutX="230.0" layoutY="230.0" mnemonicParsing="false" onAction="#SwitchToMainScene" prefHeight="40.0" prefWidth="138.0" style="             -fx-background-color: #4CAF50;             -fx-text-fill: white;             -fx-font-size: 16px;             -fx-font-weight: bold;             -fx-background-radius: 10;" text="Login">
-        </Button>
+
+        <Button layoutX="214.0" layoutY="280.0" mnemonicParsing="false" onAction="#SwitchToMainScene" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Login" />
+
+        <Label layoutX="100.0" layoutY="350.0" style="-fx-font-size: 14px; -fx-text-fill: #666;" text="Don't have an account? Register now!" />
+        <Button layoutX="234.0" layoutY="380.0" mnemonicParsing="false" onAction="#SwitchToRegisterMenu" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Register" />
     </children>
 </AnchorPane>

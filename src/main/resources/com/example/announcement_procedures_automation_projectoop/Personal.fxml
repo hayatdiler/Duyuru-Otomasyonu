@@ -15,11 +15,11 @@
             <image>
                 <Image url="@Images/PA.jpg" />
             </image>
-
         </ImageView>
-        <Label layoutX="-4.0" layoutY="-1.0" prefHeight="21.0" prefWidth="327.0" style="-fx-text-fill: #3a3a3a;" text="     Personal">
+
+        <Label layoutX="20.0" layoutY="10.0" prefHeight="50.0" prefWidth="500.0" style="-fx-text-fill: #3a3a3a;" text="Personal Announcements">
             <font>
-                <Font name="Arial Black" size="43.0" />
+                <Font name="Arial Black" size="36.0" />
             </font>
         </Label>
 
@@ -27,10 +27,11 @@
 
         <Button layoutX="116.0" layoutY="341.0" mnemonicParsing="false" onAction="#addPa" prefHeight="50.0" prefWidth="263.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="Add personal announcement" />
 
-        <TextField fx:id="textField" layoutX="27.0" layoutY="234.0" prefHeight="40.0" prefWidth="459.0" promptText="Person:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #cccccc; -fx-border-radius: 5;" />
+        <TextField fx:id="textField" layoutX="27.0" layoutY="234.0" prefHeight="40.0" prefWidth="459.0" promptText="Name:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #cccccc; -fx-border-radius: 5;" />
 
+        <TextField fx:id="textField1" layoutX="27.0" layoutY="284.0" prefHeight="40.0" prefWidth="459.0" promptText="Announcement:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #cccccc; -fx-border-radius: 5;" />
+
+        <Label layoutX="560.0" layoutY="10.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Person List" />
         <ListView fx:id="palist" layoutX="560.0" layoutY="32.0" prefHeight="441.0" prefWidth="196.0" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-radius: 5; -fx-font-size: 14px; -fx-text-fill: #333333;" />
-
-        <TextField fx:id="textField1" layoutX="29.0" layoutY="164.0" prefHeight="50.0" prefWidth="459.0" promptText="Announcement:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #cccccc; -fx-border-radius: 5;" />
     </children>
 </AnchorPane>
