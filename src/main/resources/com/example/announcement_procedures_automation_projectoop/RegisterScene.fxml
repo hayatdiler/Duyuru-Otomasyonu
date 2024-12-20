@@ -4,28 +4,32 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.RegisterController">
+<AnchorPane prefHeight="431.0" prefWidth="600.0" style="-fx-background-color: #51158c;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.RegisterController">
    <children>
-      <!-- Background -->
-      <Rectangle fill="#f5f5f5" height="450.0" layoutX="0.0" layoutY="0.0" width="600.0" />
 
       <!-- Header -->
-      <Label layoutX="200.0" layoutY="30.0" prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 28px; -fx-text-fill: #444; -fx-font-weight: bold;" text="Register Menu" />
+      <Label layoutX="306.0" layoutY="40.0" prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 28px; -fx-text-fill: FFA500.; -fx-font-weight: bold;" text="Register Menu" textFill="#dba51d" />
 
       <!-- Input Fields -->
-      <Label layoutX="65.0" layoutY="100.0" style="-fx-font-size: 16px; -fx-text-fill: #555;" text="Name" />
-      <TextField fx:id="usernameField" layoutX="65.0" layoutY="130.0" prefHeight="34.0" prefWidth="215.0" promptText="Enter your name" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;" />
+      <Label layoutX="306.0" layoutY="100.0" style="-fx-font-size: 16px; -fx-text-fill: #FFA500.;" text="Username:" textFill="#e0b210" />
+      <TextField fx:id="usernameField" layoutX="306.0" layoutY="126.0" prefHeight="34.0" prefWidth="215.0" promptText="Enter your username" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;" />
 
-      <Label layoutX="65.0" layoutY="182.0" style="-fx-font-size: 16px; -fx-text-fill: #555;" text="Password" />
-      <PasswordField fx:id="passwordField" layoutX="65.0" layoutY="208.0" prefHeight="34.0" prefWidth="215.0" promptText="Enter your password" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;" />
+      <Label layoutX="314.0" layoutY="182.0" style="-fx-font-size: 16px; -fx-text-fill: FFA500.;" text="Password:" textFill="#d9aa0c" />
+      <PasswordField fx:id="passwordField" layoutX="306.0" layoutY="208.0" prefHeight="34.0" prefWidth="215.0" promptText="Enter your password" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;" />
 
       <!-- Register Button -->
-      <Button layoutX="225.0" layoutY="280.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="47.0" prefWidth="150.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Register" />
+      <Button layoutX="379.0" layoutY="274.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="47.0" prefWidth="150.0" style="-fx-background-color: #b163ff; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Register" />
 
       <!-- Back Button -->
-      <Button layoutX="40.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #E0E0E0; -fx-text-fill: #333; -fx-font-size: 14px; -fx-border-color: #aaa; -fx-border-radius: 10;" text="Back" />
+      <Button layoutX="473.0" layoutY="391.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #b163ff; -fx-text-fill: WHITE; -fx-font-size: 14px; -fx-border-color: #aaa; -fx-border-radius: 10;" text="Back" textFill="#f4f2f2" />
+      <ImageView fitHeight="459.0" fitWidth="269.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/loginbackground2.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

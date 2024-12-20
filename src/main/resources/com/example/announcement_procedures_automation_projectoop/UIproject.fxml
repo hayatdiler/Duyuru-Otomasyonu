@@ -7,27 +7,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="788.0" style="-fx-background-color: linear-gradient(to bottom, #f0f4f8, #d9e2ec);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="788.0" style="-fx-background-color: linear-gradient(to bottom, #f0f4f8, #d9e2ec);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.Controller">
     <children>
-        <ImageView fitHeight="510.0" fitWidth="788.0" layoutX="1.0" layoutY="-2.0">
-            <image>
-                <Image url="@Images/Announcement.jpg" />
-            </image>
-        </ImageView>
-        <Label layoutX="68.0" layoutY="30.0" prefHeight="114.0" prefWidth="664.0" style="-fx-text-fill: #3a3a3a;" text="  Announcement procedures automation" textAlignment="CENTER">
+      <ImageView fitHeight="656.0" fitWidth="788.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+             <Image url="@Images/Background.png" />
+         </image>
+      </ImageView>
+        <Label layoutX="109.0" layoutY="34.0" prefHeight="114.0" prefWidth="586.0" style="-fx-text-fill: #3a3a3a;" text="  Announcement Procedures Automation" textAlignment="CENTER" textFill="#2923c9">
             <font>
-                <Font name="Arial Black" size="28.0" />
+                <Font name="Arial Rounded MT Bold" size="28.0" />
             </font>
         </Label>
 
-        <Button layoutX="75.0" layoutY="206.0" mnemonicParsing="false" onAction="#switchToAdvertisements" prefHeight="70.0" prefWidth="143.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="AddAdvertisement" />
+        <Button layoutX="63.0" layoutY="171.0" mnemonicParsing="false" onAction="#switchToAdvertisements" prefHeight="70.0" prefWidth="143.0" style="-fx-background-color: #7F00FF; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="AddAdvertisement" />
 
-        <Button layoutX="319.0" layoutY="206.0" mnemonicParsing="false" onAction="#switchToProclamation" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="AddProclamation" />
+        <Button layoutX="312.0" layoutY="171.0" mnemonicParsing="false" onAction="#switchToProclamation" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #7F00FF; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="AddProclamation" />
 
-        <Button layoutX="559.0" layoutY="206.0" mnemonicParsing="false" onAction="#switchToPersonal" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="AddPersonal" />
+        <Button layoutX="561.0" layoutY="171.0" mnemonicParsing="false" onAction="#switchToPersonal" prefHeight="70.0" prefWidth="150.0" style="-fx-background-color: #7F00FF; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="AddPersonal" />
 
-        <Button layoutX="219.0" layoutY="351.0" mnemonicParsing="false" onAction="#switchToList" prefHeight="82.0" prefWidth="350.0" style="-fx-background-color: #7F00FF; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-border-radius: 15; -fx-background-radius: 15; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="All of the Announcements" />
+        <Button layoutX="276.0" layoutY="305.0" mnemonicParsing="false" onAction="#switchToList" prefHeight="82.0" prefWidth="222.0" style="-fx-background-color: #7F00FF; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-border-radius: 15; -fx-background-radius: 15; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="All of the Announcements" />
 
-        <Button layoutX="40.0" layoutY="440.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10;" text="Back" />
+        <Button layoutX="17.0" layoutY="420.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: #ff69b4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10;" text="Back" />
     </children>
 </AnchorPane>

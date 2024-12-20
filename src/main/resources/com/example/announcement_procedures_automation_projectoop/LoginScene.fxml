@@ -4,36 +4,43 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.LoginController">
+<AnchorPane prefHeight="510.0" prefWidth="686.0" style="-fx-background-color: #51158c;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.LoginController">
     <children>
-        <!-- Background -->
-        <Rectangle fill="#f5f5f5" height="450.0" layoutX="0.0" layoutY="0.0" width="600.0" />
 
         <!-- Header -->
-        <Text layoutX="200.0" layoutY="50.0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #444;" text="Welcome Back!" wrappingWidth="200.0" />
+        <Text fill="#f5aa18" layoutX="386.0" layoutY="69.0" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Welcome Back!" wrappingWidth="200.0" />
 
         <!-- Input Fields -->
-        <TextField fx:id="textField" layoutX="164.0" layoutY="100.0" prefHeight="40.0" prefWidth="272.0" promptText="Name" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;">
+        <TextField fx:id="textField" layoutX="350.0" layoutY="136.0" prefHeight="40.0" prefWidth="272.0" promptText="Name" style="-fx-background-color: #f0f0f0; -fx-border-color: #8e44ad; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 5;">
             <font>
                 <Font size="16.0" />
             </font>
         </TextField>
 
-        <PasswordField fx:id="passwordField" layoutX="163.0" layoutY="178.0" prefHeight="40.0" prefWidth="272.0" promptText="Password" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;">
+        <PasswordField fx:id="passwordField" layoutX="350.0" layoutY="207.0" prefHeight="40.0" prefWidth="272.0" promptText="Password" style="-fx-background-color: #f0f0f0; -fx-border-color: #8e44ad; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 5;">
             <font>
                 <Font size="16.0" />
             </font>
         </PasswordField>
 
+        <!-- Buttons -->
+        <Button layoutX="436.0" layoutY="299.0" mnemonicParsing="false" onAction="#SwitchToMainScene" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #b163ff; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Login" />
 
-        <Button layoutX="214.0" layoutY="280.0" mnemonicParsing="false" onAction="#SwitchToMainScene" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Login" />
+        <Label layoutX="424.0" layoutY="446.0" style="-fx-font-size: 14px; -fx-text-fill: #f5aa18;" text="Don't have an account? Register now!" textFill="#d9a00e" />
+        <Button layoutX="559.0" layoutY="466.0" mnemonicParsing="false" onAction="#SwitchToRegisterMenu" prefHeight="20.0" prefWidth="98.0" style="-fx-background-color: #b163ff; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Register" />
 
-        <Label layoutX="100.0" layoutY="350.0" style="-fx-font-size: 14px; -fx-text-fill: #666;" text="Don't have an account? Register now!" />
-        <Button layoutX="234.0" layoutY="380.0" mnemonicParsing="false" onAction="#SwitchToRegisterMenu" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Register" />
+        <!-- Background Images -->
+        <ImageView fitHeight="526.0" fitWidth="287.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/loginbackground2.jpg" />
+            </image>
+        </ImageView>
+
     </children>
 </AnchorPane>

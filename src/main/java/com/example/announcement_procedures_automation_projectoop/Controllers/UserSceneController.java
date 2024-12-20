@@ -4,6 +4,7 @@ import com.example.announcement_procedures_automation_projectoop.CustomCells.Cus
 import com.example.announcement_procedures_automation_projectoop.CustomCells.CustomListCellPerson;
 import com.example.announcement_procedures_automation_projectoop.DataBases.DataBaseAdvertisement;
 import com.example.announcement_procedures_automation_projectoop.DataBases.DataBasePerson;
+import com.example.announcement_procedures_automation_projectoop.DataBases.DataBaseProclamation;
 import com.example.announcement_procedures_automation_projectoop.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,12 +39,12 @@ public class UserSceneController {
     @FXML
     public void initialize() {
         Alistcontroller.Advertisementannounce= DataBaseAdvertisement.loadData();
-
         for(String company:Alistcontroller.Advertisementannounce.keySet()){
             if(!Alistcontroller.announcments3.contains("Company:"+company)){
                 Alistcontroller.announcments3.add("Company:"+company);
             }
         }
+        pListcontroller.announcments1= (ArrayList<String>) DataBaseProclamation.loadData();
         PAlistcontroller.personalAnnouncements= DataBasePerson.loadData();
         for(String name:PAlistcontroller.personalAnnouncements.keySet()){
             if(!PAlistcontroller.announcments2.contains("Person:"+name)){
