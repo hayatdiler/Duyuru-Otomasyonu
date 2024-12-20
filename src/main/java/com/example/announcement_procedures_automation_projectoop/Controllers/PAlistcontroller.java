@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PAlistcontroller {
+public class PAlistcontroller implements WithCustomCell {
 
     @FXML
     private ListView<String> palist;

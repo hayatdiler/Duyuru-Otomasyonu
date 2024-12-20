@@ -1,6 +1,6 @@
 package com.example.announcement_procedures_automation_projectoop.Announcements;
 
-public class PersonalAnnouncement extends Announcement{
+public class PersonalAnnouncement extends Announcement implements Multivariable{
 
     private String person;
 

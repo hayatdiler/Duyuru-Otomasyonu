@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Alistcontroller {
+public class Alistcontroller implements WithCustomCell {
 
     @FXML
     private ListView<String> alist;
