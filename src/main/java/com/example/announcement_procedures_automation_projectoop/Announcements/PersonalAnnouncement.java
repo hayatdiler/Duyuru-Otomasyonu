@@ -18,4 +18,8 @@ public class PersonalAnnouncement extends Announcement implements Multivariable{
         return person;
     }
 
+    @Override
+    public String multivariableName() {
+        return "Person";
+    }
 }

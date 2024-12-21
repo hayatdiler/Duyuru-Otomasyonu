@@ -84,4 +84,9 @@ public class Alistcontroller implements WithCustomCell {
         stage.setScene(scene);
         stage.show();
     }
+
+    @Override
+    public void messageCustomList() {
+        System.out.println("Advertisement class have custom cell");
+    }
 }

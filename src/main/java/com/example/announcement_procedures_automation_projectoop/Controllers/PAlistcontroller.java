@@ -86,5 +86,8 @@ public class PAlistcontroller implements WithCustomCell {
         stage.setScene(scene);
         stage.show();
     }
-
+    @Override
+    public void messageCustomList() {
+        System.out.println("Personal announcement class have custom cell");
+    }
 }

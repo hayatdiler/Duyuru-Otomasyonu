@@ -18,4 +18,8 @@ public class Advertisements extends Announcement implements Multivariable{
         return company;
     }
 
+    @Override
+    public String multivariableName() {
+        return "Company";
+    }
 }
