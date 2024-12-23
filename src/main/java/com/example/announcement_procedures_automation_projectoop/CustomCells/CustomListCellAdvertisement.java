@@ -23,8 +23,8 @@ public class CustomListCellAdvertisement extends ListCell<String> {
 
         setOnMouseClicked(event -> {
             String company = getItem();
-            if(company != null && company.startsWith("Company:")){
-                company=company.substring(8);
+            if(company != null && company.startsWith("Company: ")){
+                company=company.substring(9);
             }
             if (isSubListVisible) {
                 cellContent.getChildren().remove(subList);

@@ -6,6 +6,7 @@ import com.example.announcement_procedures_automation_projectoop.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,12 +16,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.net.URL;
+import java.util.*;
 
-public class pListcontroller {
+public class pListcontroller implements Initializable {
 
     @FXML
     private ListView<String> plist;
@@ -31,13 +30,6 @@ public class pListcontroller {
 
     public static ArrayList<String> announcments1 = new ArrayList<>();
 
-
-    public void initialize() {
-
-        announcments1= (ArrayList<String>) DataBaseProclamation.loadData();
-
-        plist.getItems().addAll(announcments1);
-    }
 
     @FXML
     private void addProclamation() {
@@ -59,6 +51,23 @@ public class pListcontroller {
         }
     }
 
+    @FXML
+    private void removeProclamation(){
+        String selectedElement = plist.getSelectionModel().getSelectedItem();
+
+        if(selectedElement!=null){
+            if(announcments1.contains(selectedElement)){
+                announcments1.remove(selectedElement);
+
+                plist.getItems().clear();
+                plist.getItems().addAll(announcments1);
+
+                DataBaseProclamation.saveData(announcments1);
+            }
+
+        }
+    }
+
 
     @FXML
     public void switchToBack(ActionEvent event) throws IOException {
@@ -70,4 +79,9 @@ public class pListcontroller {
         stage.show();
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        announcments1= (ArrayList<String>) DataBaseProclamation.loadData();
+        plist.getItems().addAll(announcments1);
+    }
 }

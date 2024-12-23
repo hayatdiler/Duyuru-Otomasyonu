@@ -40,8 +40,8 @@ public class UserSceneController {
     public void initialize() {
         Alistcontroller.Advertisementannounce= DataBaseAdvertisement.loadData();
         for(String company:Alistcontroller.Advertisementannounce.keySet()){
-            if(!Alistcontroller.announcments3.contains("Company:"+company)){
-                Alistcontroller.announcments3.add("Company:"+company);
+            if(!Alistcontroller.announcments3.contains("Company: "+company)){
+                Alistcontroller.announcments3.add("Company: "+company);
             }
         }
         pListcontroller.announcments1= (ArrayList<String>) DataBaseProclamation.loadData();
@@ -78,7 +78,6 @@ public class UserSceneController {
         Object data = DataBasePerson.loadData();
         System.out.println("Loaded data: " + data);
 
-        // Verinin Map türünde olup olmadığını kontrol et
         if (data instanceof Map) {
             Map<String, Object> dataMap = (Map<String, Object>) data;
             System.out.println("Data Map: " + dataMap);
@@ -88,7 +87,6 @@ public class UserSceneController {
                 Object announcementsObj = dataMap.get(username); // Kullanıcı adı ile duyuruları al
                 System.out.println("Personal Announcements: " + announcementsObj);
 
-                // Eğer duyurular bir listeyse
                 if (announcementsObj instanceof List) {
                     List<String> allAnnouncements = (List<String>) announcementsObj;
 

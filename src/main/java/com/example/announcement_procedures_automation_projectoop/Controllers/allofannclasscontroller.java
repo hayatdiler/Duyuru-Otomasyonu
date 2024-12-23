@@ -10,6 +10,7 @@ import com.example.announcement_procedures_automation_projectoop.Controllers.PAl
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,10 +18,12 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class allofannclasscontroller {
+public class allofannclasscontroller implements Initializable {
     @FXML
     private Stage stage;
     @FXML
@@ -30,13 +33,24 @@ public class allofannclasscontroller {
     @FXML
     private ListView<String> listView3;
 
+
     @FXML
-    public void initialize() {
+    public void switchToBack(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UIProject.fxml"));
+        Parent root = fxmlLoader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         Alistcontroller.Advertisementannounce= DataBaseAdvertisement.loadData();
 
         for(String company:Alistcontroller.Advertisementannounce.keySet()){
-            if(!Alistcontroller.announcments3.contains("Company:"+company)){
-                Alistcontroller.announcments3.add("Company:"+company);
+            if(!Alistcontroller.announcments3.contains("Company: "+company)){
+                Alistcontroller.announcments3.add("Company: "+company);
             }
         }
         PAlistcontroller.personalAnnouncements= DataBasePerson.loadData();
@@ -57,17 +71,4 @@ public class allofannclasscontroller {
         listView1.setCellFactory(listview-> new CustomListCellAdvertisement());
         listView3.setCellFactory(listView -> new CustomListCellPerson());
     }
-
-
-
-    @FXML
-    public void switchToBack(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UIProject.fxml"));
-        Parent root = fxmlLoader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
 }

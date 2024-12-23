@@ -7,6 +7,7 @@ import com.example.announcement_procedures_automation_projectoop.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,12 +17,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.net.URL;
+import java.util.*;
 
-public class PAlistcontroller implements WithCustomCell {
+public class PAlistcontroller implements WithCustomCell, Initializable {
 
     @FXML
     private ListView<String> palist;
@@ -32,20 +31,6 @@ public class PAlistcontroller implements WithCustomCell {
 
     public static ArrayList<String> announcments2 = new ArrayList<>();
     public static Map<String, List<String>> personalAnnouncements = new HashMap<>();
-
-    public void initialize() {
-
-        personalAnnouncements=DataBasePerson.loadData();
-
-        for(String person:personalAnnouncements.keySet()){
-            if(!announcments2.contains("Person:"+person)){
-                announcments2.add("Person:"+person);
-            }
-        }
-
-        palist.getItems().addAll(announcments2);
-        palist.setCellFactory(listView -> new CustomListCellPerson());
-    }
 
     @FXML
     private void addPa() {
@@ -75,6 +60,29 @@ public class PAlistcontroller implements WithCustomCell {
         }
     }
 
+    @FXML
+    public void removePa(){
+        String selectedElement=palist.getSelectionModel().getSelectedItem();
+
+        if(selectedElement!=null){
+            String person = selectedElement.replace("Person:","").trim();
+
+            if(personalAnnouncements.containsKey(person)){
+                personalAnnouncements.remove(person);
+
+                announcments2.remove(selectedElement);
+                palist.getItems().clear();
+                palist.getItems().addAll(announcments2);
+
+                DataBasePerson.saveData(personalAnnouncements);
+            }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Please select an element");
+            alert.showAndWait();
+        }
+    }
 
 
     @FXML
@@ -89,5 +97,20 @@ public class PAlistcontroller implements WithCustomCell {
     @Override
     public void messageCustomList() {
         System.out.println("Personal announcement class have custom cell");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        personalAnnouncements=DataBasePerson.loadData();
+
+        for(String person:personalAnnouncements.keySet()){
+            if(!announcments2.contains("Person:"+person)){
+                announcments2.add("Person:"+person);
+            }
+        }
+
+        palist.getItems().addAll(announcments2);
+        palist.setCellFactory(listView -> new CustomListCellPerson());
     }
 }

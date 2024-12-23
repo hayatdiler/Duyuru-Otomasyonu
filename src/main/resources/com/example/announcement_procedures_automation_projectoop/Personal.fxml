@@ -33,5 +33,6 @@
 
         <Label layoutX="560.0" layoutY="10.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Person List:" />
         <ListView fx:id="palist" layoutX="560.0" layoutY="32.0" prefHeight="411.0" prefWidth="196.0" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-radius: 5; -fx-font-size: 14px; -fx-text-fill: #333333;" />
+      <Button layoutX="401.0" layoutY="326.0" mnemonicParsing="false" onAction="#removePa" prefHeight="50.0" prefWidth="117.0" style="-fx-background-color: #ff69b4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="Delete" />
     </children>
 </AnchorPane>

@@ -4,10 +4,12 @@ package com.example.announcement_procedures_automation_projectoop.Controllers;
 import com.example.announcement_procedures_automation_projectoop.Announcements.Advertisements;
 import com.example.announcement_procedures_automation_projectoop.CustomCells.CustomListCellAdvertisement;
 import com.example.announcement_procedures_automation_projectoop.DataBases.DataBaseAdvertisement;
+import com.example.announcement_procedures_automation_projectoop.DataBases.DataBasePerson;
 import com.example.announcement_procedures_automation_projectoop.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,12 +19,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.net.URL;
+import java.util.*;
 
-public class Alistcontroller implements WithCustomCell {
+public class Alistcontroller implements WithCustomCell, Initializable {
 
     @FXML
     private ListView<String> alist;
@@ -34,19 +34,6 @@ public class Alistcontroller implements WithCustomCell {
     public static ArrayList<String> announcments3 = new ArrayList<>();
     public static Map<String, List<String>> Advertisementannounce = new HashMap<>();
 
-    public void initialize() {
-
-        Advertisementannounce= DataBaseAdvertisement.loadData();
-
-        for(String company:Advertisementannounce.keySet()){
-            if(!announcments3.contains("Company:"+company)){
-                announcments3.add("Company:"+company);
-            }
-        }
-
-        alist.getItems().addAll(announcments3);
-        alist.setCellFactory(listview->new CustomListCellAdvertisement());
-    }
 
     @FXML
     private void addAdvertisement() {
@@ -61,8 +48,8 @@ public class Alistcontroller implements WithCustomCell {
         } else {
             Advertisementannounce.computeIfAbsent(a.getCompany(), k -> new ArrayList<>()).add(a.getMessage());
 
-            if(!announcments3.contains("Company:"+a.getCompany())){
-                announcments3.add("Company:"+a.getCompany());
+            if(!announcments3.contains("Company: "+a.getCompany())){
+                announcments3.add("Company: "+a.getCompany());
             }
             alist.getItems().clear();
             alist.getItems().addAll(announcments3);
@@ -74,6 +61,29 @@ public class Alistcontroller implements WithCustomCell {
         }
     }
 
+    @FXML
+    public void removeAdvertisement(){
+        String selectedElement=alist.getSelectionModel().getSelectedItem();
+
+        if(selectedElement!=null){
+            String company = selectedElement.replace("Company: ","").trim();
+
+            if(Advertisementannounce.containsKey(company)){
+                Advertisementannounce.remove(company);
+
+                announcments3.remove(selectedElement);
+                alist.getItems().clear();
+                alist.getItems().addAll(announcments3);
+
+                DataBaseAdvertisement.saveData(Advertisementannounce);
+            }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Please select an element");
+            alert.showAndWait();
+        }
+    }
 
     @FXML
     public void switchToBack(ActionEvent event) throws IOException {
@@ -88,5 +98,19 @@ public class Alistcontroller implements WithCustomCell {
     @Override
     public void messageCustomList() {
         System.out.println("Advertisement class have custom cell");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Advertisementannounce= DataBaseAdvertisement.loadData();
+
+        for(String company:Advertisementannounce.keySet()){
+            if(!announcments3.contains("Company: "+company)){
+                announcments3.add("Company: "+company);
+            }
+        }
+
+        alist.getItems().addAll(announcments3);
+        alist.setCellFactory(listview->new CustomListCellAdvertisement());
     }
 }

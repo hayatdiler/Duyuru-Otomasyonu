@@ -24,12 +24,13 @@
             </font>
         </Label>
 
-        <Button layoutX="183.0" layoutY="300.0" mnemonicParsing="false" onAction="#addAdvertisement" prefHeight="70.0" prefWidth="249.0" style="-fx-background-color: #7F00FF; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="Add advertisement" />
+        <Button layoutX="101.0" layoutY="304.0" mnemonicParsing="false" onAction="#addAdvertisement" prefHeight="70.0" prefWidth="249.0" style="-fx-background-color: #7F00FF; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="Add advertisement" />
 
-        <TextField fx:id="textField" layoutX="83.0" layoutY="211.0" prefHeight="50.0" prefWidth="418.0" promptText="Company:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
+        <TextField fx:id="textField" layoutX="83.0" layoutY="153.0" prefHeight="50.0" prefWidth="418.0" promptText="Company:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
 
         <ListView fx:id="alist" layoutX="532.0" layoutY="51.0" prefHeight="422.0" prefWidth="210.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-font-size: 14px; -fx-text-fill: #333333;" />
 
-        <TextField fx:id="textField1" layoutX="83.0" layoutY="147.0" prefHeight="42.0" prefWidth="418.0" promptText="Announcement:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
+        <TextField fx:id="textField1" layoutX="83.0" layoutY="227.0" prefHeight="42.0" prefWidth="418.0" promptText="Announcement:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
+      <Button layoutX="386.0" layoutY="310.0" mnemonicParsing="false" onAction="#removeAdvertisement" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: #ff69b4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 0, 4);" text="Delete" />
     </children>
 </AnchorPane>
