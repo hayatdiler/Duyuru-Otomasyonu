@@ -20,7 +20,7 @@ public class CustomListCellPerson extends ListCell<String> {
         subList = new ListView<>();
         subList.setMaxHeight(80);
         cellContent = new VBox(5, mainText);
-
+        // kullanici uzerine tiklandiginda ona atanan duyurulari goruntuleyebilmek icin bir liste(customlist) goruntulenir
         setOnMouseClicked(event -> {
             String person = getItem();
             if(person != null && person.startsWith("Person:")){

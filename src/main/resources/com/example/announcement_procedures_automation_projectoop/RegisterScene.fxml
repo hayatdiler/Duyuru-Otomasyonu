@@ -11,20 +11,20 @@
 <AnchorPane prefHeight="431.0" prefWidth="600.0" style="-fx-background-color: #51158c;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.RegisterController">
    <children>
 
-      <!-- Header -->
+
       <Label layoutX="306.0" layoutY="40.0" prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 28px; -fx-text-fill: FFA500.; -fx-font-weight: bold;" text="Register Menu" textFill="#dba51d" />
 
-      <!-- Input Fields -->
+
       <Label layoutX="306.0" layoutY="100.0" style="-fx-font-size: 16px; -fx-text-fill: #FFA500.;" text="Username:" textFill="#e0b210" />
-      <TextField fx:id="usernameField" layoutX="306.0" layoutY="126.0" prefHeight="34.0" prefWidth="215.0" promptText="Enter your username" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;" />
+      <TextField fx:id="usernameField" layoutX="306.0" layoutY="126.0" prefHeight="34.0" prefWidth="215.0" promptText="Enter your username" style="-fx-background-color: transparent; -fx-border-color: #FFA500; -fx-border-width: 0 0 2 0; -fx-padding: 5; -fx-text-fill: #FFA500;" />
 
       <Label layoutX="314.0" layoutY="182.0" style="-fx-font-size: 16px; -fx-text-fill: FFA500.;" text="Password:" textFill="#d9aa0c" />
-      <PasswordField fx:id="passwordField" layoutX="306.0" layoutY="208.0" prefHeight="34.0" prefWidth="215.0" promptText="Enter your password" style="-fx-background-radius: 10; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 5;" />
+      <PasswordField fx:id="passwordField" layoutX="306.0" layoutY="208.0" prefHeight="34.0" prefWidth="215.0" promptText="Enter your password" style="-fx-background-color: transparent; -fx-border-color: #FFA500; -fx-border-width: 0 0 2 0; -fx-padding: 5; -fx-text-fill: #FFA500;" />
 
-      <!-- Register Button -->
+
       <Button layoutX="379.0" layoutY="274.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="47.0" prefWidth="150.0" style="-fx-background-color: #b163ff; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Register" />
 
-      <!-- Back Button -->
+
       <Button layoutX="473.0" layoutY="391.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #b163ff; -fx-text-fill: WHITE; -fx-font-size: 14px; -fx-border-color: #aaa; -fx-border-radius: 10;" text="Back" textFill="#f4f2f2" />
       <ImageView fitHeight="459.0" fitWidth="269.0" pickOnBounds="true" preserveRatio="true">
          <image>

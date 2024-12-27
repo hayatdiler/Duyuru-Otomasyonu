@@ -17,16 +17,16 @@
 
         <Button layoutX="14.0" layoutY="453.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="35.0" prefWidth="98.0" style="-fx-background-color: #ff69b4; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-radius: 10; -fx-background-radius: 10;" text="Back" />
 
-        <ListView fx:id="listView1" layoutX="72.0" layoutY="34.0" prefHeight="407.0" prefWidth="200.0" style="-fx-background-color: #f8d7da; -fx-border-color: #bdc3c7; -fx-border-radius: 5;">
+        <ListView fx:id="listView1" layoutX="72.0" layoutY="34.0" prefHeight="407.0" prefWidth="200.0" style="-fx-background-color: #f8d7da; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-background-radius: 10;">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
         </ListView>
 
 
-        <ListView fx:id="listView2" layoutX="312.0" layoutY="34.0" prefHeight="407.0" prefWidth="200.0" style="-fx-background-color: #d1ecf1; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
+        <ListView fx:id="listView2" layoutX="312.0" layoutY="34.0" prefHeight="407.0" prefWidth="200.0" style="-fx-background-color: #d1ecf1; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-background-radius: 10;" />
 
 
-        <ListView fx:id="listView3" layoutX="546.0" layoutY="34.0" prefHeight="407.0" prefWidth="200.0" style="-fx-background-color: #d4edda; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
+        <ListView fx:id="listView3" layoutX="546.0" layoutY="34.0" prefHeight="407.0" prefWidth="200.0" style="-fx-background-color: #d4edda; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-background-radius: 10;" />
     </children>
 </AnchorPane>

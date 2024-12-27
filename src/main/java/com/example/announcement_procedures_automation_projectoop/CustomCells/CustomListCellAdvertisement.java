@@ -15,12 +15,13 @@ public class CustomListCellAdvertisement extends ListCell<String> {
 
     private boolean isSubListVisible = false;
 
+
     public CustomListCellAdvertisement() {
         mainText = new Text();
         subList = new ListView<>();
         subList.setMaxHeight(80);
         cellContent = new VBox(5, mainText);
-
+        // reklam sirketinin uzerine tiklandiginda duyurularini goruntuleyebilmek icin yazilan method
         setOnMouseClicked(event -> {
             String company = getItem();
             if(company != null && company.startsWith("Company: ")){

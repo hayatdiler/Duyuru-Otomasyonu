@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -31,13 +32,14 @@ public class pListcontroller implements Initializable {
     public static ArrayList<String> announcments1 = new ArrayList<>();
 
 
+    // ekleme islemi
     @FXML
     private void addProclamation() {
         String proclamation = textField.getText().trim();
         Proclamation p=new Proclamation("Proclamation",proclamation);
         if (p.getMessage().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Proclamation cannot be empty!");
+            alert.setContentText("Proclamation cannot be empty!");// bos olursa her hangi bir sey eklenemez
             alert.showAndWait();
         } else {
 
@@ -51,24 +53,39 @@ public class pListcontroller implements Initializable {
         }
     }
 
+    // silme islemi
     @FXML
     private void removeProclamation(){
         String selectedElement = plist.getSelectionModel().getSelectedItem();
 
         if(selectedElement!=null){
-            if(announcments1.contains(selectedElement)){
-                announcments1.remove(selectedElement);
+            Alert confirmationalert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationalert.setTitle("Delete proclamation");
+            confirmationalert.setHeaderText("Are you sure?");
+            confirmationalert.setContentText("Do you want to delete");
 
-                plist.getItems().clear();
-                plist.getItems().addAll(announcments1);
+            Optional<ButtonType> answer = confirmationalert.showAndWait();
+            if(answer.isPresent() && answer.get()==ButtonType.OK) {
+                if (announcments1.contains(selectedElement)) {
+                    announcments1.remove(selectedElement);
 
-                DataBaseProclamation.saveData(announcments1);
+                    plist.getItems().clear();
+                    plist.getItems().addAll(announcments1);
+
+                    DataBaseProclamation.saveData(announcments1);
+                }
             }
-
+            else return;
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Please select an element");
+            alert.showAndWait();
         }
     }
 
-
+    // geri donme butonu icin yazilan menthod
     @FXML
     public void switchToBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UIProject.fxml"));
@@ -79,6 +96,7 @@ public class pListcontroller implements Initializable {
         stage.show();
     }
 
+    //ilk calisirilan method
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         announcments1= (ArrayList<String>) DataBaseProclamation.loadData();

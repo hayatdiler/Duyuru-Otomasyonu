@@ -32,9 +32,10 @@ public class LoginController {
         String password = passwordField.getText().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert("Error", "Username and password cannot be empty!");
+            showAlert("Error", "Username and password cannot be empty!");//bos birakilamaz
             return;
         }
+        // eger uygun kullanici ve sifre girilirse Admin sayfasinda yonlendirlir
         if(username.equals("Admin") && password.equals("1234")){
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UIProject.fxml"));
             Parent root = fxmlLoader.load();
@@ -43,6 +44,8 @@ public class LoginController {
             stage.setScene(scene);
             stage.show();
         }
+        // kullanici girisi alani
+        // eger kullanici ismi ve sifresi database ile eslesiyorsa kullanici sayfasina erisim acilir
         else if (users.containsKey(username) && users.get(username).equals(password)) {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UserScene.fxml"));
 
@@ -54,10 +57,11 @@ public class LoginController {
             stage.setScene(scene);
             stage.show();
         } else {
-            showAlert("Error", "Invalid username or password!");
+            showAlert("Error", "Invalid username or password!");// database ile eslesmez ise error mesaji gosterilir
         }
     }
 
+    // kayit alanina gecis
     public void SwitchToRegisterMenu(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("RegisterScene.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -67,6 +71,7 @@ public class LoginController {
     }
 
 
+    // error mesaji icin method(kolaylik saglamasi icin)
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);

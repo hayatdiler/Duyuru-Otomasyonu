@@ -29,6 +29,7 @@ public class RegisterController {
 
     private Map<String, String> users = new HashMap<>();
 
+    // ilk calistiralacak method
     public void initialize() {
         users = DataBaseUser.loadUserData();
     }
@@ -39,20 +40,21 @@ public class RegisterController {
         String password = passwordField.getText().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert("Error", "Username and password cannot be empty!");
+            showAlert("Error", "Username and password cannot be empty!");// bos birakilamaz
             return;
         }
 
         if (users.containsKey(username)) {
-            showAlert("Error", "User already exists!");
+            showAlert("Error", "User already exists!");// boyle bir kullanici ve sifre var ise bu kullanicinin olduguna dair mesaj dondurlur
         } else {
             users.put(username, password);
             DataBaseUser.saveUserData(users);
-            showAlert("Success", "User registered successfully!");
+            showAlert("Success", "User registered successfully!");// kullanici girisi basarili ise buna uygun mesaj gosterilir
             usernameField.clear();
             passwordField.clear();
         }
     }
+
 
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -60,6 +62,8 @@ public class RegisterController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    // geri donme butonu icin method
     @FXML
     public void switchToBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginScene.fxml"));

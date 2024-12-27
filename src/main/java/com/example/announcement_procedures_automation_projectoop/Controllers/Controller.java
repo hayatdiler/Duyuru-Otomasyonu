@@ -32,7 +32,7 @@ public class Controller {
     private ArrayList<String> advertismentlist=new ArrayList<>();
 
 
-
+    // kisisel duyuru ekleme alanina gecis
     @FXML
     public void switchToPersonal(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Personal.fxml"));
@@ -41,6 +41,7 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+    // genel duyuru ekleme alanina gecis
     @FXML
     public void switchToProclamation(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Proclamation.fxml"));
@@ -49,6 +50,7 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+    // reklam ekleme alanina gecis
     @FXML
     public void switchToAdvertisements(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Advertisements.fxml"));
@@ -57,6 +59,7 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+    // hepsini ayni sayfada goruntuleyebilmek icin tasarlanan sayfaya gecis
     @FXML
     public void switchToList(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AllOfTheAnnouncements.fxml"));
@@ -65,6 +68,8 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+
+    // geri donme butonu
     @FXML
     public void switchToBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginScene.fxml"));

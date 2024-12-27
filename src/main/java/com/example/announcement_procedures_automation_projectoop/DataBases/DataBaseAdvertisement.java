@@ -15,6 +15,7 @@ public class DataBaseAdvertisement {
 
     private static final String FILE_PATH = "Advertisement.json";
 
+    // verileri kaydetme
     public static void saveData(Map<String, List<String>> data) {
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter(FILE_PATH)) {
@@ -23,7 +24,7 @@ public class DataBaseAdvertisement {
             e.printStackTrace();
         }
     }
-
+    // verileri yukleme
     public static Map<String, List<String>> loadData() {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(FILE_PATH)) {

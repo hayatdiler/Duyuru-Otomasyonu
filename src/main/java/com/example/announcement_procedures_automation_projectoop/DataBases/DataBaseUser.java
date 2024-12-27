@@ -15,7 +15,7 @@ public class DataBaseUser {
 
     private static final String FILE_PATH = "Users.json";
 
-
+    // verileri kaydetme
     public static void saveUserData(Map<String, String> users) {
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter(FILE_PATH)) {
@@ -24,7 +24,7 @@ public class DataBaseUser {
             e.printStackTrace();
         }
     }
-
+    // verileri yukleme
     public static Map<String, String> loadUserData() {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(FILE_PATH)) {

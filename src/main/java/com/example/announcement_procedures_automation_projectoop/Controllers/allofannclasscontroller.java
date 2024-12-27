@@ -34,6 +34,7 @@ public class allofannclasscontroller implements Initializable {
     private ListView<String> listView3;
 
 
+    // geri donme butonu
     @FXML
     public void switchToBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UIProject.fxml"));
@@ -44,6 +45,7 @@ public class allofannclasscontroller implements Initializable {
         stage.show();
     }
 
+    // girildigi gibi listelerin dolu olmasi icin initialize methodu uygulanir
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Alistcontroller.Advertisementannounce= DataBaseAdvertisement.loadData();

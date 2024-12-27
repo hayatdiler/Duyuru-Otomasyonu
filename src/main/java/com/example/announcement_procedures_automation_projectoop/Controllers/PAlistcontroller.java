@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -43,12 +44,16 @@ public class PAlistcontroller implements WithCustomCell, Initializable {
             alert.setContentText("Proclamation cannot be empty!");
             alert.showAndWait();
         } else {
-            personalAnnouncements.computeIfAbsent(pa.getPerson(), k -> new ArrayList<>()).add(pa.getMessage());
+            personalAnnouncements.computeIfAbsent(pa.getPerson(), k -> new ArrayList<>()).add(pa.getMessage());// eger metod bulamazsa ikinci kisimi calistirir sonraki denemelerde bulacagi icin dogrudan getCompany() dondurulur
 
 
             if (!announcments2.contains("Person:" + pa.getPerson())) {
                 announcments2.add("Person:" + pa.getPerson());
             }
+            /*
+            eger listede yok ise hem kullanici hem mesaj eklenir
+            listede kullanici var ise mesaj kutusuna(customlist) eklenir
+             */
 
             palist.getItems().clear();
             palist.getItems().addAll(announcments2);
@@ -60,22 +65,32 @@ public class PAlistcontroller implements WithCustomCell, Initializable {
         }
     }
 
+    //eleman silme
     @FXML
     public void removePa(){
         String selectedElement=palist.getSelectionModel().getSelectedItem();
 
-        if(selectedElement!=null){
-            String person = selectedElement.replace("Person:","").trim();
+        if(selectedElement!=null) {
+            Alert confirmationalert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationalert.setTitle("Delete personal announcement");
+            confirmationalert.setHeaderText("Are you sure");
+            confirmationalert.setContentText("Do you want to delete");
 
-            if(personalAnnouncements.containsKey(person)){
-                personalAnnouncements.remove(person);
+            Optional<ButtonType> answer = confirmationalert.showAndWait();
 
-                announcments2.remove(selectedElement);
-                palist.getItems().clear();
-                palist.getItems().addAll(announcments2);
+            if (answer.isPresent() && answer.get() == ButtonType.OK) {
+                String person = selectedElement.replace("Person:", "").trim();// elemanin icerigini bos bir string ile degistirmek silme ile ayni islevi gorur
 
-                DataBasePerson.saveData(personalAnnouncements);
+                if (personalAnnouncements.containsKey(person)) {
+                    personalAnnouncements.remove(person);
+                    announcments2.remove(selectedElement);
+                    palist.getItems().clear();
+                    palist.getItems().addAll(announcments2);
+
+                    DataBasePerson.saveData(personalAnnouncements);
+                }
             }
+            else return;
         }
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -85,6 +100,7 @@ public class PAlistcontroller implements WithCustomCell, Initializable {
     }
 
 
+    // geri donme butonu
     @FXML
     public void switchToBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UIProject.fxml"));
@@ -99,6 +115,7 @@ public class PAlistcontroller implements WithCustomCell, Initializable {
         System.out.println("Personal announcement class have custom cell");
     }
 
+    // sayfa gecisinde ilk calistirilan method
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

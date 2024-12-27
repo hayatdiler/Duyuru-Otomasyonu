@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -35,6 +36,7 @@ public class Alistcontroller implements WithCustomCell, Initializable {
     public static Map<String, List<String>> Advertisementannounce = new HashMap<>();
 
 
+    // reklam ekleme
     @FXML
     private void addAdvertisement() {
         String comp = textField.getText().trim();
@@ -43,14 +45,18 @@ public class Alistcontroller implements WithCustomCell, Initializable {
 
         if (a.getMessage().isEmpty() || a.getCompany().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Proclamation cannot be empty!");
-            alert.showAndWait();
+            alert.setContentText("cannot be empty!");
+            alert.showAndWait();// textfieldlar bos birakilamaz
         } else {
-            Advertisementannounce.computeIfAbsent(a.getCompany(), k -> new ArrayList<>()).add(a.getMessage());
+            Advertisementannounce.computeIfAbsent(a.getCompany(), k -> new ArrayList<>()).add(a.getMessage());// eger metod bulamazsa ikinci kisimi calistirir sonraki denemelerde bulacagi icin dogrudan getCompany() dondurulur
 
             if(!announcments3.contains("Company: "+a.getCompany())){
                 announcments3.add("Company: "+a.getCompany());
             }
+            /*
+            eger listede yok ise hem kullanici hem mesaj eklenir
+            listede kullanici var ise mesaj kutusuna(customlist) eklenir
+             */
             alist.getItems().clear();
             alist.getItems().addAll(announcments3);
 
@@ -61,30 +67,47 @@ public class Alistcontroller implements WithCustomCell, Initializable {
         }
     }
 
+    // silme islemi
     @FXML
     public void removeAdvertisement(){
         String selectedElement=alist.getSelectionModel().getSelectedItem();
 
-        if(selectedElement!=null){
-            String company = selectedElement.replace("Company: ","").trim();
 
-            if(Advertisementannounce.containsKey(company)){
-                Advertisementannounce.remove(company);
 
-                announcments3.remove(selectedElement);
-                alist.getItems().clear();
-                alist.getItems().addAll(announcments3);
 
-                DataBaseAdvertisement.saveData(Advertisementannounce);
+            if (selectedElement != null) {
+                Alert confirmationalert=new Alert(Alert.AlertType.CONFIRMATION);
+                confirmationalert.setTitle("Delete advertisement");
+                confirmationalert.setHeaderText("Are you sure?");
+                confirmationalert.setContentText("Do you want to delete");
+
+                Optional<ButtonType> answer = confirmationalert.showAndWait();
+
+                if(answer.isPresent() && answer.get()==ButtonType.OK) {
+
+                    String company = selectedElement.replace("Company: ", "").trim();// elemanin icerigini bos bir string ile degistirmek silme ile ayni islevi gorur
+
+                    if (Advertisementannounce.containsKey(company)) {
+                        Advertisementannounce.remove(company);
+
+                        announcments3.remove(selectedElement);
+                        alist.getItems().clear();
+                        alist.getItems().addAll(announcments3);
+
+                        DataBaseAdvertisement.saveData(Advertisementannounce);
+                    }
+                }
+                else return;
+              // secilmezse uyari gonderilir
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Please select an element");
+                alert.showAndWait();
             }
         }
-        else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Please select an element");
-            alert.showAndWait();
-        }
-    }
 
+
+    // geri donme butonu
     @FXML
     public void switchToBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UIProject.fxml"));
@@ -100,6 +123,7 @@ public class Alistcontroller implements WithCustomCell, Initializable {
         System.out.println("Advertisement class have custom cell");
     }
 
+    // ilk calistirilan method
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Advertisementannounce= DataBaseAdvertisement.loadData();
@@ -109,7 +133,7 @@ public class Alistcontroller implements WithCustomCell, Initializable {
                 announcments3.add("Company: "+company);
             }
         }
-
+        // listeyi guncelleme
         alist.getItems().addAll(announcments3);
         alist.setCellFactory(listview->new CustomListCellAdvertisement());
     }

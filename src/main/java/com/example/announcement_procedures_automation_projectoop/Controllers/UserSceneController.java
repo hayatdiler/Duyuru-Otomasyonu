@@ -36,22 +36,23 @@ public class UserSceneController {
     public  UserSceneController(String username){
         this.username=username;
     }
+    // ilk calistiralacak method
     @FXML
     public void initialize() {
-        Alistcontroller.Advertisementannounce= DataBaseAdvertisement.loadData();
+        Alistcontroller.Advertisementannounce= DataBaseAdvertisement.loadData();// reklam ekleme
         for(String company:Alistcontroller.Advertisementannounce.keySet()){
             if(!Alistcontroller.announcments3.contains("Company: "+company)){
                 Alistcontroller.announcments3.add("Company: "+company);
             }
         }
-        pListcontroller.announcments1= (ArrayList<String>) DataBaseProclamation.loadData();
+        pListcontroller.announcments1= (ArrayList<String>) DataBaseProclamation.loadData();// genel duyuru ekleme
         PAlistcontroller.personalAnnouncements= DataBasePerson.loadData();
         for(String name:PAlistcontroller.personalAnnouncements.keySet()){
             if(!PAlistcontroller.announcments2.contains("Person:"+name)){
                 PAlistcontroller.announcments2.add("Person:"+name);
             }
         }
-        ArrayList<String> personalAnnouncements = getPersonalAnnouncementsForUser(username);
+        ArrayList<String> personalAnnouncements = getPersonalAnnouncementsForUser(username);//kisisel duyuru ekleme
         List<String> Advertisements = Alistcontroller.announcments3;
         List<String> Proclamations = pListcontroller.announcments1;
 
@@ -99,7 +100,7 @@ public class UserSceneController {
             }
         }
 
-        return filteredAnnouncements;
+        return filteredAnnouncements;// filtrelenmis listeyi dondur
     }
 
 

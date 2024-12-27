@@ -11,11 +11,11 @@
 
 <AnchorPane prefHeight="510.0" prefWidth="788.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff, #dceefb);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.announcement_procedures_automation_projectoop.Controllers.Alistcontroller">
     <children>
-      <ImageView fitHeight="510.0" fitWidth="788.0">
-         <image>
-            <Image url="@Images/Background.png" />
-         </image>
-      </ImageView>
+        <ImageView fitHeight="510.0" fitWidth="788.0">
+            <image>
+                <Image url="@Images/Background.png" />
+            </image>
+        </ImageView>
         <Button layoutX="36.0" layoutY="442.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #ff69b4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 0, 4);" text="Back" />
 
         <Label layoutX="83.0" layoutY="60.0" prefHeight="42.0" prefWidth="350.0" style="-fx-text-fill: #2c3e50;" text="Advertisements:">
@@ -26,11 +26,11 @@
 
         <Button layoutX="101.0" layoutY="304.0" mnemonicParsing="false" onAction="#addAdvertisement" prefHeight="70.0" prefWidth="249.0" style="-fx-background-color: #7F00FF; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.0, 0, 4);" text="Add advertisement" />
 
-        <TextField fx:id="textField" layoutX="83.0" layoutY="153.0" prefHeight="50.0" prefWidth="418.0" promptText="Company:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
+        <TextField fx:id="textField" layoutX="83.0" layoutY="153.0" prefHeight="50.0" prefWidth="418.0" promptText="Company:" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #7F00FF transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5;-fx-text-fill: #7F00FF;" />
 
-        <ListView fx:id="alist" layoutX="532.0" layoutY="51.0" prefHeight="422.0" prefWidth="210.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-font-size: 14px; -fx-text-fill: #333333;" />
+        <ListView fx:id="alist" layoutX="532.0" layoutY="51.0" prefHeight="422.0" prefWidth="210.0" style="-fx-background-color: #ffffff; -fx-border-color: #7F00FF; -fx-border-radius: 5; -fx-font-size: 14px; -fx-text-fill: #7F00FF; -fx-background-radius: 10;" />
 
-        <TextField fx:id="textField1" layoutX="83.0" layoutY="227.0" prefHeight="42.0" prefWidth="418.0" promptText="Announcement:" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-background-color: #f4f4f4; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" />
-      <Button layoutX="386.0" layoutY="310.0" mnemonicParsing="false" onAction="#removeAdvertisement" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: #ff69b4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 0, 4);" text="Delete" />
+        <TextField fx:id="textField1" layoutX="83.0" layoutY="227.0" prefHeight="42.0" prefWidth="418.0" promptText="Announcement:" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #7F00FF transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5;" />
+        <Button layoutX="386.0" layoutY="310.0" mnemonicParsing="false" onAction="#removeAdvertisement" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: #ff69b4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 0, 4);" text="Delete" />
     </children>
 </AnchorPane>

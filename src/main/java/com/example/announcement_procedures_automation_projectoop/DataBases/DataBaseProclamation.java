@@ -13,7 +13,7 @@ import java.util.List;
 public class DataBaseProclamation {
 
     private static final String FILE_PATH = "Proclamation.json";
-
+    // verileri kaydetme
     public static void saveData(List<String> data) {
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter(FILE_PATH)) {
@@ -22,7 +22,7 @@ public class DataBaseProclamation {
             e.printStackTrace();
         }
     }
-
+    // verileri yukleme
     public static List<String> loadData() {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(FILE_PATH)) {
